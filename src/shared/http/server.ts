@@ -7,9 +7,16 @@ import cors from "cors";
 import { routes } from "./routes";
 import AppError from "../errors/AppError";
 import "./../../shared/typeorm";
+import { Client } from "pg";
 
 dotenv.config();
 const app = express();
+
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+});
+client.connect();
 
 app.use(cors());
 
