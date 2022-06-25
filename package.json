@@ -30,7 +30,7 @@
     },
     "scripts": {
         "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
-        "start": "react-scripts start",
+        "start": "node dist/server.js",
         "build": "react-scripts build tsc",
         "test": "jest",
         "eject": "react-scripts eject",
