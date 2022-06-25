@@ -16,6 +16,7 @@ const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
 });
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 client.connect();
 
 app.use(cors());
