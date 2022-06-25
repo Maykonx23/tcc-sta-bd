@@ -1,7 +1,7 @@
-import { ClientesRepository } from "@modules/clientes/typeorm/repositories/ClientesRepository";
-import { ServicosRepository } from "@modules/servicos/typeorm/repositories/ServicosRepository";
-import { TecnicosRepository } from "@modules/tecnicos/typeorm/repositories/TecnicosRepository";
-import AppError from "@shared/errors/AppError";
+import { ClientesRepository } from "../../../modules/clientes/typeorm/repositories/ClientesRepository";
+import { ServicosRepository } from "../../../modules/servicos/typeorm/repositories/ServicosRepository";
+import { TecnicosRepository } from "../../../modules/tecnicos/typeorm/repositories/TecnicosRepository";
+import AppError from "../../../shared/errors/AppError";
 import { getCustomRepository } from "typeorm";
 import { SolicitacaoServico } from "../typeorm/entities/SolicitacaoServico";
 import { SolicitacaoServicosRepository } from "../typeorm/repositories/SolicitacaoServicosRepository";

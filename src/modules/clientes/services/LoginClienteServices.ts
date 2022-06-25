@@ -1,10 +1,10 @@
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { ClientesRepository } from '../typeorm/repositories/ClientesRepository';
-import { compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
-import { Cliente } from '../typeorm/entities/Cliente';
-import authConfig from '@config/auth';
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { ClientesRepository } from "../typeorm/repositories/ClientesRepository";
+import { compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
+import { Cliente } from "../typeorm/entities/Cliente";
+import authConfig from "../../../config/auth";
 
 interface IRequest {
     email: string;
@@ -23,13 +23,13 @@ export class LoginClienteService {
         const cliente = await clientesRepository.findByEmail(email);
 
         if (!cliente) {
-            throw new AppError('Email/Senha invalido.', 401);
+            throw new AppError("Email/Senha invalido.", 401);
         }
 
         const passAccept = await compare(password, cliente.password);
 
         if (!passAccept) {
-            throw new AppError('Email/Senha invalido.', 401);
+            throw new AppError("Email/Senha invalido.", 401);
         }
 
         const token = sign({}, authConfig.jwt.secret, {

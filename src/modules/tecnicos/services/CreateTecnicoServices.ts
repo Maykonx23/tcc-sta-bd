@@ -1,9 +1,9 @@
-import { ClientesRepository } from '@modules/clientes/typeorm/repositories/ClientesRepository';
-import { ServicosRepository } from '@modules/servicos/typeorm/repositories/ServicosRepository';
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { Tecnico } from '../typeorm/entities/Tecnico';
-import { TecnicosRepository } from '../typeorm/repositories/TecnicosRepository';
+import { ClientesRepository } from "../../../modules/clientes/typeorm/repositories/ClientesRepository";
+import { ServicosRepository } from "../../../modules/servicos/typeorm/repositories/ServicosRepository";
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { Tecnico } from "../typeorm/entities/Tecnico";
+import { TecnicosRepository } from "../typeorm/repositories/TecnicosRepository";
 
 interface IServicos {
     id: string;
@@ -36,11 +36,11 @@ export class CreateTecnicoService {
         const servicoExists = await servicosRepository; */
 
         if (!clienteExists) {
-            throw new AppError('Esse Cliente não existe.');
+            throw new AppError("Esse Cliente não existe.");
         }
 
-        if (clienteExists.nivel === 'cliente') {
-            throw new AppError('Esse Cliente não é nivel Técnico.');
+        if (clienteExists.nivel === "cliente") {
+            throw new AppError("Esse Cliente não é nivel Técnico.");
         }
 
         const tecnico = await tecnicosRepository.createTecnico({

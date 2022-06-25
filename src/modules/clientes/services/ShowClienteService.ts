@@ -1,7 +1,7 @@
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { Cliente } from '../typeorm/entities/Cliente';
-import { ClientesRepository } from '../typeorm/repositories/ClientesRepository';
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { Cliente } from "../typeorm/entities/Cliente";
+import { ClientesRepository } from "../typeorm/repositories/ClientesRepository";
 
 interface IRequest {
     id: string;
@@ -14,7 +14,7 @@ export class ShowClienteService {
         const cliente = await clienteRepository.findById(id);
 
         if (!cliente) {
-            throw new AppError('Cliente não existe.');
+            throw new AppError("Cliente não existe.");
         }
 
         return cliente;

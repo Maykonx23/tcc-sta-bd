@@ -1,8 +1,8 @@
-import { Endereco } from '@modules/enderecos/typeorm/entities/Endereco';
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { Cliente } from '../typeorm/entities/Cliente';
-import { ClientesRepository } from '../typeorm/repositories/ClientesRepository';
+import { Endereco } from "../../../modules/enderecos/typeorm/entities/Endereco";
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { Cliente } from "../typeorm/entities/Cliente";
+import { ClientesRepository } from "../typeorm/repositories/ClientesRepository";
 
 interface IRequest {
     id: string;
@@ -35,19 +35,19 @@ export class UpdateClienteService {
         const cliente = await clienteRepository.findOne(id);
 
         if (!cliente) {
-            throw new AppError('Produto não existe.');
+            throw new AppError("Produto não existe.");
         }
 
         const emailExists = await clienteRepository.findByEmail(email);
 
         if (emailExists && email != cliente.email) {
-            throw new AppError('Email já cadastrado.');
+            throw new AppError("Email já cadastrado.");
         }
 
         const cpfExists = await clienteRepository.findByCpf(cpf);
 
         if (cpfExists && email != cliente.cpf) {
-            throw new AppError('CPF já cadastrado.');
+            throw new AppError("CPF já cadastrado.");
         }
 
         cliente.name = name;

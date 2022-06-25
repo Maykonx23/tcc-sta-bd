@@ -1,15 +1,15 @@
-import { Request, Response } from 'express';
-import { CreateClienteService } from '../services/CreateClienteServices';
-import { DeleteClienteService } from '../services/DeleteClienteService';
-import { ListClienteService } from '../services/ListClienteService';
-import { LoginClienteService } from '../services/LoginClienteServices';
-import { ShowClienteService } from '../services/ShowClienteService';
-import { UpdateClienteService } from '../services/UpdateClienteService';
+import { Request, Response } from "express";
+import { CreateClienteService } from "../services/CreateClienteServices";
+import { DeleteClienteService } from "../services/DeleteClienteService";
+import { ListClienteService } from "../services/ListClienteService";
+import { LoginClienteService } from "../services/LoginClienteServices";
+import { ShowClienteService } from "../services/ShowClienteService";
+import { UpdateClienteService } from "../services/UpdateClienteService";
 
 export default class ClienteController {
     public async index(
         request: Request,
-        response: Response,
+        response: Response
     ): Promise<Response> {
         const listClientes = new ListClienteService();
 
@@ -30,7 +30,7 @@ export default class ClienteController {
 
     public async create(
         request: Request,
-        response: Response,
+        response: Response
     ): Promise<Response> {
         const {
             name,
@@ -63,7 +63,7 @@ export default class ClienteController {
 
     public async update(
         request: Request,
-        response: Response,
+        response: Response
     ): Promise<Response> {
         const {
             name,
@@ -99,7 +99,7 @@ export default class ClienteController {
 
     public async delete(
         request: Request,
-        response: Response,
+        response: Response
     ): Promise<Response> {
         const { id } = request.params;
 

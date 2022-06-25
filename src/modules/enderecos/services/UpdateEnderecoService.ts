@@ -1,7 +1,7 @@
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { Endereco } from '../typeorm/entities/Endereco';
-import { EnderecoRepository } from '../typeorm/repositories/EnderecosReposutiries';
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { Endereco } from "../typeorm/entities/Endereco";
+import { EnderecoRepository } from "../typeorm/repositories/EnderecosReposutiries";
 
 interface IRequest {
     id: string;
@@ -30,7 +30,7 @@ export class UpdateEnderecoService {
         const endereco = await enderecosRepository.findOne(id);
 
         if (!endereco) {
-            throw new AppError('Produto não existe.');
+            throw new AppError("Produto não existe.");
         }
 
         endereco.cep = cep;

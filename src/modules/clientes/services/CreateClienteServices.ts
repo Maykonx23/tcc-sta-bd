@@ -1,9 +1,9 @@
-import { EnderecoRepository } from '@modules/enderecos/typeorm/repositories/EnderecosReposutiries';
-import AppError from '@shared/errors/AppError';
-import { hash } from 'bcryptjs';
-import { getCustomRepository } from 'typeorm';
-import { Cliente } from '../typeorm/entities/Cliente';
-import { ClientesRepository } from '../typeorm/repositories/ClientesRepository';
+import { hash } from "bcryptjs";
+import { EnderecoRepository } from "../../../modules/enderecos/typeorm/repositories/EnderecosReposutiries";
+import AppError from "../../../shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { Cliente } from "../typeorm/entities/Cliente";
+import { ClientesRepository } from "../typeorm/repositories/ClientesRepository";
 
 interface IRequest {
     name: string;
@@ -38,16 +38,16 @@ export class CreateClienteService {
         const emailExists = await clientesRepository.findByEmail(email);
 
         if (emailExists) {
-            throw new AppError('Email já cadastrado.');
+            throw new AppError("Email já cadastrado.");
         }
 
         const cpfExists = await clientesRepository.findByCpf(cpf);
 
         if (cpfExists) {
-            throw new AppError('CPF já cadastrado.');
+            throw new AppError("CPF já cadastrado.");
         }
         if (!enderecoExists) {
-            throw new AppError('Esse CEP não existe.');
+            throw new AppError("Esse CEP não existe.");
         }
 
         const hashPassword = await hash(password, 8);

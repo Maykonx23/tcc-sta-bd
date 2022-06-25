@@ -3,7 +3,6 @@ import { EntityRepository, Repository } from "typeorm";
 import { SolicitacaoServico } from "../entities/SolicitacaoServico";
 import { Servico } from "../../../servicos/typeorm/entities/Servico";
 import { Tecnico } from "../../../tecnicos/typeorm/entities/Tecnico";
-import { Chat } from "@modules/chats/typeorm/entities/Chat";
 
 interface IChats {
     id: string;

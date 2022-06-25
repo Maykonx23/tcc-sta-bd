@@ -1,4 +1,4 @@
-import { SolicitacaoServico } from "@modules/solicitacaoServicos/typeorm/entities/SolicitacaoServico";
+import { SolicitacaoServico } from "src/modules/solicitacaoServicos/typeorm/entities/SolicitacaoServico";
 import { EntityRepository, Repository } from "typeorm";
 import { Chat } from "../entities/Chat";
 

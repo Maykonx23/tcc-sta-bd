@@ -1,5 +1,5 @@
-import { SolicitacaoServicosRepository } from "@modules/solicitacaoServicos/typeorm/repositories/SolicitacaoServicosRepository";
-import AppError from "@shared/errors/AppError";
+import { SolicitacaoServicosRepository } from "../../../modules/solicitacaoServicos/typeorm/repositories/SolicitacaoServicosRepository";
+import AppError from "../../../shared/errors/AppError";
 import { getCustomRepository } from "typeorm";
 import { Chat } from "../typeorm/entities/Chat";
 import { ChatRepository } from "../typeorm/repositories/ChatsReposutiries";

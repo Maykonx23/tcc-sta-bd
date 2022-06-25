@@ -1,6 +1,6 @@
-import AppError from '@shared/errors/AppError';
-import { getCustomRepository } from 'typeorm';
-import { ClientesRepository } from '../typeorm/repositories/ClientesRepository';
+import AppError from "../../..//shared/errors/AppError";
+import { getCustomRepository } from "typeorm";
+import { ClientesRepository } from "../typeorm/repositories/ClientesRepository";
 interface IRequest {
     id: string;
 }
@@ -10,11 +10,11 @@ export class DeleteClienteService {
         const clienteRepository = getCustomRepository(ClientesRepository);
 
         const cliente = await clienteRepository.findOne(id, {
-            relations: ['endereco'],
+            relations: ["endereco"],
         });
 
         if (!cliente) {
-            throw new AppError('Produto não existe.');
+            throw new AppError("Produto não existe.");
         }
 
         await clienteRepository.remove(cliente);

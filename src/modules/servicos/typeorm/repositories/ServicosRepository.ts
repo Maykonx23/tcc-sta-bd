@@ -1,4 +1,4 @@
-import { Tecnico } from "@modules/tecnicos/typeorm/entities/Tecnico";
+import { Tecnico } from "../../../../modules/tecnicos/typeorm/entities/Tecnico";
 import { EntityRepository, Repository } from "typeorm";
 import { Servico } from "../entities/Servico";
 interface IRequest {

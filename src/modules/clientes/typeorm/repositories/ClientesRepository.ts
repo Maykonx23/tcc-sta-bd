@@ -1,7 +1,7 @@
-import { Endereco } from '@modules/enderecos/typeorm/entities/Endereco';
-import { EntityRepository, Repository } from 'typeorm';
-import { string } from 'yup';
-import { Cliente } from '../entities/Cliente';
+import { Endereco } from "../../../../modules/enderecos/typeorm/entities/Endereco";
+import { EntityRepository, Repository } from "typeorm";
+import { string } from "yup";
+import { Cliente } from "../entities/Cliente";
 
 interface IRequest {
     name: string;
@@ -29,7 +29,7 @@ export class ClientesRepository extends Repository<Cliente> {
 
     public async findById(id: string): Promise<Cliente | undefined> {
         const cliente = await this.findOne(id, {
-            relations: ['endereco'],
+            relations: ["endereco"],
         });
 
         return cliente;
@@ -38,7 +38,7 @@ export class ClientesRepository extends Repository<Cliente> {
     public async findByEmail(email: string): Promise<Cliente | undefined> {
         const cliente = await this.findOne({
             where: { email },
-            relations: ['endereco'],
+            relations: ["endereco"],
         });
 
         return cliente;
